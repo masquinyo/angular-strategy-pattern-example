@@ -7,6 +7,7 @@ import { OkButtonModule } from './components/ok-button/ok-button.module';
 import { YesNoButtonModule } from './components/yes-no-button/yes-no-button.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogContentsModule } from './components/dialog/dialog-contents.module';
+import { ButtonService } from '@services/button.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { DialogContentsModule } from './components/dialog/dialog-contents.module
     DialogContentsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ButtonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

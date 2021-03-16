@@ -1,7 +1,7 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-ok-button",
-  templateUrl: "ok-button.component.html"
+  selector: 'app-ok-button',
+  templateUrl: 'ok-button.component.html',
 })
 export class OkButtonComponent {}
