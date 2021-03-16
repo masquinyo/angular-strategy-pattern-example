@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { OkButtonModule } from './components/ok-button/ok-button.module';
 import { YesNoButtonModule } from './components/yes-no-button/yes-no-button.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogContentsModule } from './components/dialog/dialog-contents.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     OkButtonModule,
     YesNoButtonModule,
+    DialogContentsModule,
     BrowserAnimationsModule
   ],
   providers: [],
