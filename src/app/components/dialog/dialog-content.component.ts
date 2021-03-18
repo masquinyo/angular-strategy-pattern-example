@@ -11,7 +11,8 @@ import {
 import { Component } from '@angular/core';
 import { IButtonComponent } from '@components/ibutton.interface';
 import { ButtonDirective } from 'src/app/directives/button.directive';
-import { ButtonService, ButtonTypes } from 'src/app/services/button.service';
+import { ButtonService } from 'src/app/services/button.service';
+import { ButtonTypes } from "src/app/enums/buttonTypes.enum";
 
 @Component({
   selector: 'app-dialog-content',

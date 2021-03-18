@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogContentComponent } from './components/dialog/dialog-content.component';
-import { ButtonTypes } from './services/button.service';
+import { ButtonTypes } from './enums/buttonTypes.enum';
+import { DialogResult } from './enums/dialogResult.enum';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +11,36 @@ import { ButtonTypes } from './services/button.service';
 })
 export class AppComponent {
   title = 'angular-strategy-demo';
-  private readonly defaultDelegate = (value: string, dialogRef: MatDialogRef<DialogContentComponent, any>) => {
+  private readonly defaultDelegate = (
+    value: DialogResult,
+    dialogRef: MatDialogRef<DialogContentComponent, any>
+  ) => {
     dialogRef.close();
     alert(value);
   }
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogContentComponent);
-    dialogRef.componentInstance.buttonType = ButtonTypes.YesOrNo;
-    dialogRef.componentInstance.onClientButtonClicked.subscribe((value: string) => this.defaultDelegate(value, dialogRef));
+  public openDialogWithYesOrNo(): void {
+    this.openDialog(ButtonTypes.YesOrNo);
   }
 
-  openDialogWithOk(): void {
-    const dialogRef = this.dialog.open(DialogContentComponent);
-    dialogRef.componentInstance.buttonType = ButtonTypes.Ok;
-    dialogRef.componentInstance.onClientButtonClicked.subscribe((value: string) => this.defaultDelegate(value, dialogRef));
+  public openDialogWithOk(): void {
+    this.openDialog(ButtonTypes.Ok);
+  }
+
+  public openDialogWithConfirmCancel(): void {
+    this.openDialog(ButtonTypes.ConfirmOrCancel);
+  }
+
+  private openDialog(
+    buttonType: ButtonTypes
+  ): MatDialogRef<DialogContentComponent, any> {
+    const dialog = this.dialog.open(DialogContentComponent);
+    dialog.componentInstance.buttonType = buttonType;
+    dialog.componentInstance.onClientButtonClicked.subscribe(
+      (value: DialogResult) => this.defaultDelegate(value, dialog)
+    );
+    return dialog;
   }
 }

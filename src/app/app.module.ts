@@ -8,16 +8,18 @@ import { YesNoButtonModule } from './components/yes-no-button/yes-no-button.modu
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogContentsModule } from './components/dialog/dialog-contents.module';
 import { ButtonService } from '@services/button.service';
+import { ConfirmCancelButtonModule } from './components';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     OkButtonModule,
     YesNoButtonModule,
+    ConfirmCancelButtonModule,
     DialogContentsModule,
     BrowserAnimationsModule
   ],
