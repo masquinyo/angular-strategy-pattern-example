@@ -7,7 +7,7 @@ import { ButtonTypes } from '../enums/buttonTypes.enum';
 
 @Injectable()
 export class ButtonService {
-  buttonMap = new Map<ButtonTypes, any>([
+  buttonMap = new Map<ButtonTypes, unknown>([
     [ButtonTypes.Ok, OkButtonComponent],
     [ButtonTypes.YesOrNo, YesNoButtonComponent],
     [ButtonTypes.ConfirmOrCancel, ConfirmCancelButtonComponent],
